@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import logo from '../assets/images/dapp-logo.png';
 import { BrowserProvider, Contract } from 'ethers';
 import { abi } from '../scdata/Cert.json';
 import { CertModuleCert } from '../scdata/deployed_addresses.json';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 const ViewCertificate = () => {
   const provider = new BrowserProvider(window.ethereum);
   const { id } = useParams();
   const [certificate, setCertificate] = useState(null);
+  const certificateRef = useRef(null);
 
   useEffect(() => {
     async function getcert(searchId) {
@@ -34,9 +37,30 @@ const ViewCertificate = () => {
     }
   }, [id]);
 
+  const downloadCertificate = () => {
+    if (certificateRef.current) {
+      html2canvas(certificateRef.current, {
+        backgroundColor: '#ffffff', // Ensure the background color is white
+        scale: 2, // Increase the scale to improve quality
+      }).then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('landscape', 'mm', 'a4'); // Set landscape mode
+        const imgProps = pdf.getImageProperties(imgData);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save(`certificate_${id}.pdf`);
+      });
+    }
+  };
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-200 p-8">
-      <div className="relative w-full max-w-[297mm] h-[210mm] bg-white border border-gray-300 shadow-lg rounded-lg flex flex-col justify-center items-center p-8">
+      <div
+        ref={certificateRef}
+        className="relative w-full max-w-[297mm] h-[210mm] bg-white border border-gray-300 shadow-lg rounded-lg flex flex-col justify-center items-center p-8"
+      >
         {/* Certificate Header */}
         <div className="text-center mb-8">
           <img src={logo} className="w-40 mx-auto mb-4" alt="KBA Logo" />
@@ -77,6 +101,14 @@ const ViewCertificate = () => {
         <div className="absolute inset-0 border-[12px] border-double border-gray-400 rounded-[16px] pointer-events-none"></div>
         <div className="absolute inset-4 border-[6px] border-double border-gray-200 rounded-[12px] pointer-events-none"></div>
       </div>
+
+      {/* Floating Download Button */}
+      <button
+        onClick={downloadCertificate}
+        className="fixed bottom-4 right-4 px-6 py-3 bg-teal-600 text-white font-semibold rounded-md hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50 cursor-pointer transition duration-200 ease-in-out"
+      >
+        Download Certificate
+      </button>
     </div>
   );
 };

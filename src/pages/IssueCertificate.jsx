@@ -30,7 +30,7 @@ const IssueCertificate = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-teal-50 to-blue-50 flex flex-col items-center py-8 px-4">
-      <h3 className="text-4xl font-extrabold text-blue-900 mb-8">Certificate Dapp</h3>
+      <h3 className="text-4xl font-extrabold text-blue-900 mb-8">ECG - E-Certificate Generator</h3>
 
       <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg p-8 border border-gray-200">
         <h3 className="text-3xl font-semibold text-gray-800 mb-6">Issue New Certificate</h3>
@@ -53,7 +53,7 @@ const IssueCertificate = () => {
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Certificate ID *</label>
             <input
-              type="text"
+              type="number"
               name="id"
               required
               className="w-full h-12 px-4 border border-gray-300 rounded-md focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500"

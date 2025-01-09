@@ -20,7 +20,10 @@ const Homepage = () => {
 
       <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-gradient-to-r from-teal-100 to-blue-100">
         <h1 className="text-4xl font-extrabold text-center text-blue-800 mt-12 mb-6 sm:text-5xl">
-          Certificate Dapp
+          ECG
+          <p>
+          E-Certificate Generator
+          </p>
         </h1>
 
         <div className="mb-12">
