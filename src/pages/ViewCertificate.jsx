@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import logo from '../assets/images/dapp-logo.png';
+import logo from '../assets/images/web3logo.png';
 import { BrowserProvider, Contract } from 'ethers';
 import { abi } from '../scdata/Cert.json';
 import { CertModuleCert } from '../scdata/deployed_addresses.json';
@@ -65,7 +65,7 @@ const ViewCertificate = () => {
         <div className="text-center mb-8">
           <img src={logo} className="w-40 mx-auto mb-4" alt="KBA Logo" />
           <h3 className="text-6xl font-serif font-bold text-gray-800 mb-3">
-            Kerala Blockchain Academy
+            Wira Blockchain Academy
           </h3>
           <p className="text-2xl text-gray-700 italic">
             Certificate of Achievement

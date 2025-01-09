@@ -60,7 +60,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-teal-500 to-blue-500 shadow-md sm:px-6 lg:px-8">
+    <nav className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-blue-500 to-purple-500 shadow-md sm:px-6 lg:px-8">
       <div className="flex items-center">
         <a href="/" className="text-lg font-semibold text-white hover:text-gray-200 transition duration-300">
           Home

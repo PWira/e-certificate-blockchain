@@ -1,0 +1,79 @@
+Clone Project
+
+install Ganache blockchain
+QuickStart ETH blockchain
+
+npm install
+npm install -g truffle (just in case)
+
+truffle init
+
+edit truffle-config.js file and copy the code lines below [
+
+networks: {
+development: {
+      host: "127.0.0.1",
+      port: 7545,  // Check if this matches your Ganache port
+      network_id: "5777", // Match your Ganache network ID
+      gas: 6721975,
+      gasPrice: 20000000000
+    }
+}
+
+compilers: {
+    solc: {
+      version: "0.8.20",      // Fetch exact version from solc-bin (default: truffle's version)
+      // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
+      settings: {          // See the solidity docs for advice about optimization and evmVersion
+       optimizer: {
+         enabled: true,
+         runs: 200
+       },
+       evmVersion: "london"
+      }
+    }
+  },
+
+install metamask extension
+import private wallet
+ - copy private key from any private wallets in Ganache Blockchain
+ - Add Account or Hardware Wallet
+ - Import Wallet
+ - Paste the Private Key
+
+truffle compile --all
+
+copy "abi" [] code lines from build/Cert.json or Artifact/Cert.json and paste it in src/scdata/Cert.json
+
+truffle migrate --reset --network development
+
+find the lines in terminal after execute the prompt above.
+
+2_deploy_cert.js
+================
+
+   Deploying 'Cert'
+   ----------------
+   > transaction hash:    0x706a075dc477a85dd4290aad8e4600e733982968238c038d6fc92f64743c92ca
+   > Blocks: 0            Seconds: 0
+   > contract address:    <COPY THIS CONTRACT ADDRESS AND PASTE IN deployed_addresses.js>
+   > block number:        3
+   > block timestamp:     1736415079
+   > account:             0xCb6C33876360135099f8DEa00b633E72365468fd
+   > balance:             99.98516192
+   > gas used:            594793 (0x91369)
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.01189586 ETH
+
+   > Saving migration to chain.
+
+open Navbar.jsx in src/scdata
+
+change all const adminAddress to your private wallet address
+
+npm run dev
+
+open localhost:3000
+
+Done, you can issue certificate (if you're an admin) or check if the certificate exist by typing the Certificate ID
