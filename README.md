@@ -94,14 +94,14 @@ Ensure you have **Node.js**, **MetaMask**, and a preferred smart contract deploy
    - Connect to MetaMask with any account.
    - Enter the certificate ID to view its details on the blockchain.
 
-## 🎥 Demo Video
+<!-- ## 🎥 Demo Video
 
 
-[![Certifcate Dapp](https://img.youtube.com/vi/5krMRJRKiDY/0.jpg)](https://www.youtube.com/watch?v=5krMRJRKiDY)
+[![Certifcate Dapp](https://img.youtube.com/vi/5krMRJRKiDY/0.jpg)](https://www.youtube.com/watch?v=5krMRJRKiDY) -->
 
-## 📧 Contact
+## 📧 Credit
 
-For any questions or issues, please contact [akhilkailas2001@gmail.com](mailto:akhilkailas2001@gmail.com).
+- https://github.com/akhilkailas017
 
 ## 📜 License
 
