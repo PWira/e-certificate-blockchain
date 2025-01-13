@@ -25,7 +25,7 @@ Ensure you have **Node.js**, **MetaMask**, and a preferred smart contract deploy
 
    ```bash
    git clone https://github.com/PWira/e-certificate-blockchain.git
-   cd certificate-dapp
+   cd e-certificate-blockchain
    ```
 
 2. **Deploy the Smart Contract:**
