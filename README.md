@@ -41,9 +41,9 @@ Ensure you have **Node.js**, **MetaMask**, and a preferred smart contract deploy
    ```js
    networks: {
    development: {
-         host: "127.0.0.1",
-         port: 7545,  // Check if this matches your Ganache port
-         network_id: "5777", // Match your Ganache network ID
+         host: "127.0.0.1", // Your Own Private Blockchain or Public Blockchain network
+         port: 7545,  // Check if this matches your port
+         network_id: "5777", // Match your  network ID
          gas: 6721975,
          gasPrice: 20000000000
       }
