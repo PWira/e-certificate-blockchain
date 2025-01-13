@@ -8219,12 +8219,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x4A80dcD69be4137717b6e226b924F9707a3Fc8FB",
-      "transactionHash": "0x706a075dc477a85dd4290aad8e4600e733982968238c038d6fc92f64743c92ca"
+      "address": "0x447648d7ee67576f45AF86e6CDb7c8d083EaE975",
+      "transactionHash": "0x46fa61398ed31245aebf931684b5332a658647fe4248a192e1adabbf1e17d3c1"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2025-01-09T09:31:20.000Z",
+  "updatedAt": "2025-01-13T06:38:20.448Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

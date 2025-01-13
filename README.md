@@ -1,6 +1,8 @@
-# Certificate DApp
+# ECG (E-Certificate Generator)
 
-The **Certificate DApp** is a decentralized application that allows the issuance and verification of certificates securely on the blockchain. This DApp leverages **Ethereum** blockchain technology and **smart contracts** to ensure the integrity and authenticity of issued certificates. Built using **React** for the frontend and **Solidity** for the smart contract, this project ensures that certificate data remains tamper-proof and accessible to everyone.
+ECG (E-Certificate Generator) adalah sistem inovatif yang menghadirkan solusi penerbitan sertifikat digital berbasis blockchain untuk institusi pendidikan. Dengan memanfaatkan teknologi blockchain Ethereum dan integrasi MetaMask, ECG memungkinkan institusi untuk menghasilkan sertifikat yang tidak dapat dimanipulasi (immutable) secara efisien dari data pelajar yang diinput. 
+
+Sistem ini dibangun dengan kontrak pintar Solidity yang menjamin keamanan dan keaslian setiap sertifikat yang diterbitkan, sekaligus memberikan kemudahan verifikasi bagi semua pihak. ECG hadir sebagai solusi modern yang menggabungkan kebutuhan administrasi pendidikan dengan keandalan teknologi blockchain, menghadirkan standar baru dalam penerbitan dan verifikasi sertifikat digital yang dapat dipercaya.
 
 ## ✨ Features
 
@@ -19,40 +21,93 @@ Ensure you have **Node.js**, **MetaMask**, and a preferred smart contract deploy
 
 ### Smart Contract Deployment
 
-1. **Deploy the Smart Contract:**
-
-   - Deploy the `Cert.sol` smart contract located in the `contracts` folder using your preferred deployment application (e.g., **Hardhat**, **Truffle**, **Remix**, etc.).
-
-   - After deploying, copy the contract ABI from the generated `Cert.json` file. Depending on your deployment tool, this file will be generated in the corresponding `artifacts` or `build` folder.
-
-   - Paste the ABI into the `Cert.json` file located in the `src/scdata` folder of your project.
-
-   - Copy the deployed contract address and paste it into the `deployed_addresses.json` file in the `src/scdata` folder.
-
-### Installation
-
-2. **Clone the repository:**
+1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/akhilkailas017/Certificate-dApp.git
+   git clone https://github.com/PWira/e-certificate-blockchain.git
    cd certificate-dapp
    ```
 
-3. **Install the dependencies:**
+2. **Deploy the Smart Contract:**
 
-   ```bash
+
    npm install
+   npm install -g truffle (just in case)
+
+   truffle init
+
+   edit truffle-config.js file and copy the code lines below
+
+   ```js
+   networks: {
+   development: {
+         host: "127.0.0.1",
+         port: 7545,  // Check if this matches your Ganache port
+         network_id: "5777", // Match your Ganache network ID
+         gas: 6721975,
+         gasPrice: 20000000000
+      }
+   }
    ```
 
-4. **Start the development server:**
+   ```js
+   compilers: {
+      solc: {
+         version: "0.8.20",      // Fetch exact version from solc-bin (default: truffle's version)
+         // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
+         settings: {          // See the solidity docs for advice about optimization and evmVersion
+         optimizer: {
+            enabled: true,
+            runs: 200
+         },
+         evmVersion: "london"
+         }
+      }
+   },
+   ```
+   **Connect MetaMask:**
+
+   - install metamask extension
+   - connect metamask with ECG
+
+   truffle compile --all
+
+   copy "abi" [] code lines from build/Cert.json or artifact/Cert.json and paste it in src/scdata/Cert.json
+
+   truffle migrate --reset --network development
+
+   find the lines in terminal after execute the prompt above.
 
    ```bash
-   npm run dev
+   2_deploy_cert.js
+   ================
+
+      Deploying 'Cert'
+      ----------------
+      > transaction hash:    0x706a075dc477a85dd4290aad8e4600e733982968238c038d6fc92f64743c92ca
+      > Blocks: 0            Seconds: 0
+      > contract address:    <!-- COPY THIS CONTRACT ADDRESS AND PASTE IN deployed_addresses.js -->
+      > block number:        3
+      > block timestamp:     1736415079
+      > account:             0xCb6C33876360135099f8DEa00b633E72365468fd
+      > balance:             99.98516192
+      > gas used:            594793 (0x91369)
+      > gas price:           20 gwei
+      > value sent:          0 ETH
+      > total cost:          0.01189586 ETH
+
+      > Saving migration to chain.
    ```
 
-5. **Connect MetaMask:**
-   - Open MetaMask in your browser.
-   - Connect to the correct network where the smart contract is deployed.
+      open Navbar.jsx in src/scdata
+
+      change all const adminAddress to your private wallet address
+
+      npm run dev
+
+      open localhost:3000
+
+      Done, you can issue certificate (if you're an admin) or check if the certificate exist by typing the Certificate ID (without metamask required)
 
 6. **Done!** Now you can start issuing and viewing certificates on the blockchain.
 
@@ -93,15 +148,6 @@ Ensure you have **Node.js**, **MetaMask**, and a preferred smart contract deploy
    - Navigate to the "View Certificate" page.
    - Connect to MetaMask with any account.
    - Enter the certificate ID to view its details on the blockchain.
-
-<!-- ## 🎥 Demo Video
-
-
-[![Certifcate Dapp](https://img.youtube.com/vi/5krMRJRKiDY/0.jpg)](https://www.youtube.com/watch?v=5krMRJRKiDY) -->
-
-## 📧 Credit
-
-- https://github.com/akhilkailas017
 
 ## 📜 License
 
