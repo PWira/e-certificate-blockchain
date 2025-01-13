@@ -31,10 +31,13 @@ Ensure you have **Node.js**, **MetaMask**, and a preferred smart contract deploy
 2. **Deploy the Smart Contract:**
 
 
+   ```bash
    npm install
-   npm install -g truffle (just in case)
+
+   npm install -g truffle
 
    truffle init
+   ```
 
    edit truffle-config.js file and copy the code lines below
 
@@ -70,11 +73,15 @@ Ensure you have **Node.js**, **MetaMask**, and a preferred smart contract deploy
    - install metamask extension
    - connect metamask with ECG
 
+   ```bash
    truffle compile --all
+   ```
 
    copy "abi" [] code lines from build/Cert.json or artifact/Cert.json and paste it in src/scdata/Cert.json
 
+   ```bash
    truffle migrate --reset --network development
+   ```
 
    find the lines in terminal after execute the prompt above.
 
@@ -99,17 +106,13 @@ Ensure you have **Node.js**, **MetaMask**, and a preferred smart contract deploy
       > Saving migration to chain.
    ```
 
-      open Navbar.jsx in src/scdata
-
-      change all const adminAddress to your private wallet address
-
       npm run dev
 
       open localhost:3000
 
-      Done, you can issue certificate (if you're an admin) or check if the certificate exist by typing the Certificate ID (without metamask required)
+      If you're need to become admin, change all wallet address in src/components/Navbar.jsx to your chosen admin wallet address
 
-6. **Done!** Now you can start issuing and viewing certificates on the blockchain.
+6. **Done!** Now you can issue certificate (if you're an admin) or check if the certificate exist by typing the Certificate ID (without metamask required).
 
 ## 🔗 Connecting to MetaMask
 
