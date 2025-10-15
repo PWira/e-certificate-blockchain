@@ -1,8 +1,8 @@
 # ECG (E-Certificate Generator)
 
-ECG (E-Certificate Generator) adalah sistem inovatif yang menghadirkan solusi penerbitan sertifikat digital berbasis blockchain untuk institusi pendidikan. Dengan memanfaatkan teknologi blockchain Ethereum dan integrasi MetaMask, ECG memungkinkan institusi untuk menghasilkan sertifikat yang tidak dapat dimanipulasi (immutable) secara efisien dari data pelajar yang diinput. 
+ECG (E-Certificate Generator) is an innovative system that delivers a blockchain-based digital certificate issuance solution for educational institutions. By leveraging Ethereum blockchain technology and MetaMask integration, ECG enables institutions to efficiently generate tamper-proof (immutable) certificates from student data.
 
-Sistem ini dibangun dengan kontrak pintar Solidity yang menjamin keamanan dan keaslian setiap sertifikat yang diterbitkan, sekaligus memberikan kemudahan verifikasi bagi semua pihak. ECG hadir sebagai solusi modern yang menggabungkan kebutuhan administrasi pendidikan dengan keandalan teknologi blockchain, menghadirkan standar baru dalam penerbitan dan verifikasi sertifikat digital yang dapat dipercaya.
+Built with secure Solidity smart contracts, ECG ensures the authenticity and integrity of every issued certificate while providing seamless verification for all parties involved. It represents a modern, tech-driven solution that merges educational administration needs with the reliability of blockchain technology — setting a new standard for trusted, verifiable digital certification.
 
 ## ✨ Features
 
@@ -13,11 +13,11 @@ Sistem ini dibangun dengan kontrak pintar Solidity yang menjamin keamanan dan ke
 
 ## 🚀 Getting Started
 
-To get the Certificate DApp up and running on your local machine, follow these steps:
+To get ECG up and running on your local machine, follow these steps:
 
 ### Prerequisites
 
-Ensure you have **Node.js**, **MetaMask**, and a preferred smart contract deployment tool installed.
+Ensure you have **Node.js**, **MetaMask**, and a preferred smart contract deployment tool installed (recommended to use Ganache for simulation).
 
 ### Smart Contract Deployment
 
